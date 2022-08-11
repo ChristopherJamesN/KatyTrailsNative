@@ -1,4 +1,5 @@
 #  KatyTrailsNative
+
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)
 
 * Standard compliant React Native App Utilizing [Ignite](https://github.com/infinitered/ignite)
@@ -11,16 +12,15 @@
 
 **Step 3:** Install the Application with `yarn` or `npm i`
 
-
 ## :arrow_forward: How to Run App
 
 1. cd to the repo
 2. Run Build for either OS
-  * for iOS
-    * run `react-native run-ios`
-  * for Android
-    * Run Genymotion
-    * run `react-native run-android`
+  + for iOS
+    - run `yarn react-native run-ios`
+  + for Android
+    - Run Genymotion
+    - run `yarn react-native run-android`
 
 ## :no_entry_sign: Standard Compliant
 
@@ -61,6 +61,7 @@ Secrets.GOOGLE_MAPS_API_KEY  // 'abcdefgh'
 The `.env` file is ignored by git keeping those secrets out of your repo.
 
 ### Get started:
+
 1. Copy .env.example to .env
 2. Add your config variables
 3. Follow instructions at [https://github.com/luggit/react-native-config#setup](https://github.com/luggit/react-native-config#setup)
