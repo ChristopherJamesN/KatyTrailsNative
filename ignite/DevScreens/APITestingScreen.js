@@ -28,11 +28,11 @@ export default class APITestingScreen extends React.Component {
   }
 
   showResult (response, title = 'Response') {
-    this.refs.container.scrollTo({x: 0, y: 0, animated: true})
+    this.refs.container.scrollTo({ x: 0, y: 0, animated: true })
     if (response.ok) {
-      this.refs.result.setState({message: FJSON.plain(response.data), title: title})
+      this.refs.result.setState({ message: FJSON.plain(response.data), title: title })
     } else {
-      this.refs.result.setState({message: `${response.problem} - ${response.status}`, title: title})
+      this.refs.result.setState({ message: `${response.problem} - ${response.status}`, title: title })
     }
   }
 
@@ -46,7 +46,7 @@ export default class APITestingScreen extends React.Component {
   renderButton (apiEndpoint) {
     const { label, endpoint, args = [''] } = apiEndpoint
     return (
-      <FullButton text={label || `${endpoint}(${args.join(', ')})`} onPress={this.tryEndpoint.bind(this, apiEndpoint)} styles={{marginTop: 10}} key={`${endpoint}-${args.join('-')}`} />
+      <FullButton text={label || `${endpoint}(${args.join(', ')})`} onPress={this.tryEndpoint.bind(this, apiEndpoint)} styles={{ marginTop: 10 }} key={`${endpoint}-${args.join('-')}`} />
     )
   }
 
@@ -58,16 +58,18 @@ export default class APITestingScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{
-          position: 'absolute',
-          paddingTop: 30,
-          paddingHorizontal: 5,
-          zIndex: 10
-        }}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack()} style={{
+            position: 'absolute',
+            paddingTop: 30,
+            paddingHorizontal: 5,
+            zIndex: 10
+          }}
+        >
           <Image source={Images.backButton} />
         </TouchableOpacity>
         <ScrollView style={styles.container} ref='container'>
-          <View style={{alignItems: 'center', paddingTop: 60}}>
+          <View style={{ alignItems: 'center', paddingTop: 60 }}>
             <Image source={Images.api} style={styles.logo} />
             <Text style={styles.titleText}>API</Text>
           </View>
@@ -98,18 +100,18 @@ class APIResult extends React.Component {
   }
 
   onApiPress = () => {
-    this.setState({message: false})
+    this.setState({ message: false })
   }
 
   renderView () {
     return (
       <ScrollView style={{ top: 0, bottom: 0, left: 0, right: 0, position: 'absolute' }} overflow='hidden'>
         <TouchableOpacity
-          style={{backgroundColor: 'white', padding: 20}}
+          style={{ backgroundColor: 'white', padding: 20 }}
           onPress={this.onApiPress}
         >
           <Text>{this.state.title} Response:</Text>
-          <Text allowFontScaling={false} style={{fontFamily: 'CourierNewPS-BoldMT', fontSize: 10}}>
+          <Text allowFontScaling={false} style={{ fontFamily: 'CourierNewPS-BoldMT', fontSize: 10 }}>
             {this.state.message}
           </Text>
         </TouchableOpacity>
@@ -118,7 +120,7 @@ class APIResult extends React.Component {
   }
 
   render () {
-    let messageView = null
+    const messageView = null
     if (this.state.message) {
       return this.renderView()
     }

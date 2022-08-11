@@ -20,21 +20,23 @@ class PluginExamplesScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={() => this.props.navigation.goBack(null)} style={{
-          position: 'absolute',
-          paddingTop: 30,
-          paddingHorizontal: 5,
-          zIndex: 10
-        }}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack(null)} style={{
+            position: 'absolute',
+            paddingTop: 30,
+            paddingHorizontal: 5,
+            zIndex: 10
+          }}
+        >
           <Image source={Images.backButton} />
         </TouchableOpacity>
         <ScrollView style={styles.container}>
-          <View style={{alignItems: 'center', paddingTop: 60}}>
+          <View style={{ alignItems: 'center', paddingTop: 60 }}>
             <Image source={Images.usageExamples} style={styles.logo} />
             <Text style={styles.titleText}>Plugin Examples</Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.sectionText} >
+            <Text style={styles.sectionText}>
               The Plugin Examples screen is a playground for 3rd party libs and logic proofs.
               Items on this screen can be composed of multiple components working in concert.  Functionality demos of libs and practices
             </Text>
@@ -51,7 +53,7 @@ class PluginExamplesScreen extends React.Component {
 }
 
 export default StackNavigator({
-  PluginExamplesScreen: {screen: PluginExamplesScreen}
+  PluginExamplesScreen: { screen: PluginExamplesScreen }
 }, {
   cardStyle: {
     opacity: 1,

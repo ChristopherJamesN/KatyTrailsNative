@@ -6,28 +6,28 @@ import { Metrics, Images } from './DevTheme'
 import styles from './Styles/DeviceInfoScreenStyles'
 
 const HARDWARE_DATA = [
-  {title: 'Device Manufacturer', info: DeviceInfo.getManufacturer()},
-  {title: 'Device Name', info: DeviceInfo.getDeviceName()},
-  {title: 'Device Model', info: DeviceInfo.getModel()},
-  {title: 'Device Unique ID', info: DeviceInfo.getUniqueID()},
-  {title: 'Device Locale', info: DeviceInfo.getDeviceLocale()},
-  {title: 'Device Country', info: DeviceInfo.getDeviceCountry()},
-  {title: 'User Agent', info: DeviceInfo.getUserAgent()},
-  {title: 'Screen Width', info: Metrics.screenWidth},
-  {title: 'Screen Height', info: Metrics.screenHeight}
+  { title: 'Device Manufacturer', info: DeviceInfo.getManufacturer() },
+  { title: 'Device Name', info: DeviceInfo.getDeviceName() },
+  { title: 'Device Model', info: DeviceInfo.getModel() },
+  { title: 'Device Unique ID', info: DeviceInfo.getUniqueID() },
+  { title: 'Device Locale', info: DeviceInfo.getDeviceLocale() },
+  { title: 'Device Country', info: DeviceInfo.getDeviceCountry() },
+  { title: 'User Agent', info: DeviceInfo.getUserAgent() },
+  { title: 'Screen Width', info: Metrics.screenWidth },
+  { title: 'Screen Height', info: Metrics.screenHeight }
 ]
 
 const OS_DATA = [
-  {title: 'Device System Name', info: DeviceInfo.getSystemName()},
-  {title: 'Device ID', info: DeviceInfo.getDeviceId()},
-  {title: 'Device Version', info: DeviceInfo.getSystemVersion()}
+  { title: 'Device System Name', info: DeviceInfo.getSystemName() },
+  { title: 'Device ID', info: DeviceInfo.getDeviceId() },
+  { title: 'Device Version', info: DeviceInfo.getSystemVersion() }
 ]
 
 const APP_DATA = [
-  {title: 'Bundle Id', info: DeviceInfo.getBundleId()},
-  {title: 'Build Number', info: DeviceInfo.getBuildNumber()},
-  {title: 'App Version', info: DeviceInfo.getVersion()},
-  {title: 'App Version (Readable)', info: DeviceInfo.getReadableVersion()}
+  { title: 'Bundle Id', info: DeviceInfo.getBundleId() },
+  { title: 'Build Number', info: DeviceInfo.getBuildNumber() },
+  { title: 'App Version', info: DeviceInfo.getVersion() },
+  { title: 'App Version (Readable)', info: DeviceInfo.getReadableVersion() }
 ]
 
 export default class DeviceInfoScreen extends React.Component {
@@ -67,24 +67,24 @@ export default class DeviceInfoScreen extends React.Component {
   }
 
   setConnected = (isConnected) => {
-    this.setState({isConnected})
+    this.setState({ isConnected })
   }
 
   setConnectionInfo = (connectionInfo) => {
-    this.setState({connectionInfo})
+    this.setState({ connectionInfo })
   }
 
   updateConnectionInfoHistory = (connectionInfo) => {
     const connectionInfoHistory = this.state.connectionInfoHistory.slice()
     connectionInfoHistory.push(connectionInfo)
-    this.setState({connectionInfoHistory})
+    this.setState({ connectionInfoHistory })
   }
 
   netInfo () {
     return ([
-      {title: 'Connection', info: (this.state.isConnected ? 'Online' : 'Offline')},
-      {title: 'Connection Info', info: this.state.connectionInfo},
-      {title: 'Connection Info History', info: JSON.stringify(this.state.connectionInfoHistory)}
+      { title: 'Connection', info: (this.state.isConnected ? 'Online' : 'Offline') },
+      { title: 'Connection Info', info: this.state.connectionInfo },
+      { title: 'Connection Info History', info: JSON.stringify(this.state.connectionInfoHistory) }
     ])
   }
 
@@ -102,7 +102,7 @@ export default class DeviceInfoScreen extends React.Component {
 
   renderRows (rowData) {
     return rowData.map((cell) => {
-      const {title, info} = cell
+      const { title, info } = cell
       return (
         <View key={title} style={styles.rowContainer}>
           <View style={styles.rowLabelContainer}>
@@ -120,25 +120,27 @@ export default class DeviceInfoScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{
-          position: 'absolute',
-          paddingTop: 30,
-          paddingHorizontal: 5,
-          zIndex: 10
-        }}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack()} style={{
+            position: 'absolute',
+            paddingTop: 30,
+            paddingHorizontal: 5,
+            zIndex: 10
+          }}
+        >
           <Image source={Images.backButton} />
         </TouchableOpacity>
         <ScrollView style={styles.container}>
-          <View style={{alignItems: 'center', paddingTop: 60}}>
+          <View style={{ alignItems: 'center', paddingTop: 60 }}>
             <Image source={Images.deviceInfo} style={styles.logo} />
             <Text style={styles.titleText}>Device Info</Text>
           </View>
           <View style={styles.section}>
-            <Text style={styles.sectionText} >
+            <Text style={styles.sectionText}>
               Dedicated to identifying specifics of the device.  All info useful for identifying outlying behaviour specific to a device.
             </Text>
           </View>
-          <View style={{padding: 10}}>
+          <View style={{ padding: 10 }}>
             {this.renderCard('Device Hardware', HARDWARE_DATA)}
             {this.renderCard('Device OS', OS_DATA)}
             {this.renderCard('App Info', APP_DATA)}

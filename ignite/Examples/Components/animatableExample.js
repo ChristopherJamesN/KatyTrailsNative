@@ -19,13 +19,15 @@ ExamplesRegistry.addPluginExample('Animatable', () =>
     <Animatable.View
       style={[styles.button, styles.jelloButton]}
       animation='jello'
-      iterationCount='infinite'>
+      iterationCount='infinite'
+    >
       <Text style={styles.jelloButtonText}>Jelloo00000000</Text>
     </Animatable.View>
     <Animatable.View
       animation='pulse'
       iterationCount='infinite'
-      style={[styles.button, styles.pulseButton]}>
+      style={[styles.button, styles.pulseButton]}
+    >
       <Text style={styles.pulseButtonText}>puLsepuLsepuLse</Text>
     </Animatable.View>
   </View>

@@ -14,7 +14,7 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https
     baseURL,
     // here are some default headers
     headers: {
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
     },
     // 50 second timeout...
     timeout: 50000

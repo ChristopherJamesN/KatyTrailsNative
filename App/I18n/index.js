@@ -12,7 +12,7 @@ const translateOrFallback = initialMsg => {
     return '' // We don't return any message as we don't know what to send
   }
 
-  let localMsg = I18n.t(initialMsg)
+  const localMsg = I18n.t(initialMsg)
 
   // The translation does not exist, the default message is not very sexy
   // Instead we return the message we tried to translate

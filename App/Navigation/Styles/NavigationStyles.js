@@ -3,6 +3,6 @@ import { ApplicationStyles, Metrics, Colors } from '../../Themes'
 
 export default StyleSheet.create({
   header: {
-    backgroundColor: Colors.facebook,
+    backgroundColor: Colors.facebook
   }
 })

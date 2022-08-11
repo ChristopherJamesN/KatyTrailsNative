@@ -15,14 +15,14 @@ class TrailsScreen extends Component {
     const dataObjects = require('../Fixtures/trails.json')
     const rowHasChanged = (r1, r2) => r1 !== r2
     const sectionHeaderHasChanged = (s1, s2) => s1 !== s2
-    const ds = new ListView.DataSource({rowHasChanged, sectionHeaderHasChanged})
+    const ds = new ListView.DataSource({ rowHasChanged, sectionHeaderHasChanged })
     this.state = {
       dataSource: ds.cloneWithRowsAndSections(dataObjects)
     }
   }
 
   static navigationOptions = {
-    title: 'All Trails',
+    title: 'All Trails'
   };
 
   noRowData () {
@@ -30,7 +30,7 @@ class TrailsScreen extends Component {
   }
 
   render () {
-    const { navigate } = this.props.navigation;
+    const { navigate } = this.props.navigation
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
@@ -39,7 +39,7 @@ class TrailsScreen extends Component {
             contentContainerStyle={styles.listContent}
             dataSource={this.state.dataSource}
             onLayout={this.onLayout}
-            renderRow={(rowData) => <TouchableOpacity style={styles.row} onPress={() => navigate('TrailScreen', {name: rowData.name, description: rowData.description, maplink: rowData.maplink})}>
+            renderRow={(rowData) => <TouchableOpacity style={styles.row} onPress={() => navigate('TrailScreen', { name: rowData.name, description: rowData.description, maplink: rowData.maplink })}>
               <Text style={styles.boldLabel}>{rowData.name}</Text>
               <Text style={styles.label}>{rowData.id}</Text>
             </TouchableOpacity>}

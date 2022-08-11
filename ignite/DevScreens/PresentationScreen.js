@@ -43,12 +43,14 @@ class PresentationScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={this.props.screenProps.toggle} style={{
-          position: 'absolute',
-          paddingTop: 30,
-          paddingHorizontal: 10,
-          zIndex: 10
-        }}>
+        <TouchableOpacity
+          onPress={this.props.screenProps.toggle} style={{
+            position: 'absolute',
+            paddingTop: 30,
+            paddingHorizontal: 10,
+            zIndex: 10
+          }}
+        >
           <Image source={Images.closeButton} />
         </TouchableOpacity>
         <ScrollView showsVerticalScrollIndicator={false} bounces={false} style={styles.container}>
@@ -82,13 +84,13 @@ class PresentationScreen extends React.Component {
 }
 
 export default StackNavigator({
-  PresentationScreen: {screen: PresentationScreen},
-  APITestingScreen: {screen: APITestingScreen},
-  ComponentExamplesScreen: {screen: ComponentExamplesScreen},
-  DeviceInfoScreen: {screen: DeviceInfoScreen},
-  PluginExamplesScreen: {screen: PluginExamplesScreen},
-  ThemeScreen: {screen: ThemeScreen},
-  FaqScreen: {screen: FaqScreen}
+  PresentationScreen: { screen: PresentationScreen },
+  APITestingScreen: { screen: APITestingScreen },
+  ComponentExamplesScreen: { screen: ComponentExamplesScreen },
+  DeviceInfoScreen: { screen: DeviceInfoScreen },
+  PluginExamplesScreen: { screen: PluginExamplesScreen },
+  ThemeScreen: { screen: ThemeScreen },
+  FaqScreen: { screen: FaqScreen }
 }, {
   cardStyle: {
     opacity: 1,
@@ -100,7 +102,7 @@ export default StackNavigator({
   navigationOptions: {
     header: {
       left: (
-        <TouchableOpacity onPress={() => window.alert('pop')} ><Image source={Images.closeButton} style={{marginHorizontal: 10}} /></TouchableOpacity>
+        <TouchableOpacity onPress={() => window.alert('pop')}><Image source={Images.closeButton} style={{ marginHorizontal: 10 }} /></TouchableOpacity>
       ),
       style: {
         backgroundColor: '#3e243f'

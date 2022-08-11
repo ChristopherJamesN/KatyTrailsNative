@@ -5,9 +5,8 @@ export default {
       ok: true,
       data: require('../Fixtures/trails.json')
     }
-  },
+  }
 }
-
 
 /*
 constructor (props) {

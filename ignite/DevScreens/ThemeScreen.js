@@ -19,7 +19,7 @@ export default class ThemeScreen extends React.Component {
       <View style={styles.colorContainer} key={`${color}Container`}>
         <View style={styles.backgroundContainer} key={`${color}BackgroundContainer`}>
           <Image style={styles.backerImage} source={Images.tileBg} key={`${color}BackgroundImage`} />
-          <View style={[styles.colorSquare, {backgroundColor: Colors[color]}]} key={`${color}Square`} />
+          <View style={[styles.colorSquare, { backgroundColor: Colors[color] }]} key={`${color}Square`} />
         </View>
         <Text style={styles.colorName} key={`${color}Text`}>{color}</Text>
       </View>
@@ -32,9 +32,10 @@ export default class ThemeScreen extends React.Component {
 
   renderFont (font: string) {
     return (
-      <Text style={[styles.fontRow, {fontFamily: Fonts.type[font]}]} key={font}>{
+      <Text style={[styles.fontRow, { fontFamily: Fonts.type[font] }]} key={font}>{
         `${font}: ${Fonts.type[font]}`
-      }</Text>
+      }
+      </Text>
     )
   }
 
@@ -43,7 +44,7 @@ export default class ThemeScreen extends React.Component {
   }
 
   renderStyle (fontStyle: string) {
-    return (<Text style={[styles.fontRow, {...Fonts.style[fontStyle]}]} key={fontStyle}>{`This is ${fontStyle} style`}</Text>)
+    return (<Text style={[styles.fontRow, { ...Fonts.style[fontStyle] }]} key={fontStyle}>{`This is ${fontStyle} style`}</Text>)
   }
 
   renderStyles () {
@@ -54,16 +55,18 @@ export default class ThemeScreen extends React.Component {
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
-        <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{
-          position: 'absolute',
-          paddingTop: 30,
-          paddingHorizontal: 5,
-          zIndex: 10
-        }}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.goBack()} style={{
+            position: 'absolute',
+            paddingTop: 30,
+            paddingHorizontal: 5,
+            zIndex: 10
+          }}
+        >
           <Image source={Images.backButton} />
         </TouchableOpacity>
         <ScrollView style={styles.container}>
-          <View style={{alignItems: 'center', paddingTop: 60}}>
+          <View style={{ alignItems: 'center', paddingTop: 60 }}>
             <Image source={Images.theme} style={styles.logo} />
             <Text style={styles.titleText}>Themes</Text>
           </View>
