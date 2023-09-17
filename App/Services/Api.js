@@ -1,8 +1,11 @@
 // a library to wrap and simplify api calls
-import apisauce from 'apisauce'
+import apisauce from "apisauce";
 
 // our "constructor"
-const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https://katy-hiking-trails.herokuapp.com/') => {
+const create = (
+  baseURL = "https://hidden-reaches-61697.herokuapp.com/" +
+    "https://katy-hiking-trails.fly.dev/"
+) => {
   // ------
   // STEP 1
   // ------
@@ -14,11 +17,11 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https
     baseURL,
     // here are some default headers
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
     // 50 second timeout...
-    timeout: 50000
-  })
+    timeout: 50000,
+  });
 
   // ------
   // STEP 2
@@ -34,7 +37,7 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const getTrails = () => api.get('trails.json')
+  const getTrails = () => api.get("trails.json");
 
   // ------
   // STEP 3
@@ -50,11 +53,11 @@ const create = (baseURL = 'https://hidden-reaches-61697.herokuapp.com/' + 'https
   //
   return {
     // a list of the API functions from step 2
-    getTrails
-  }
-}
+    getTrails,
+  };
+};
 
 // let's return back our create method as the default.
 export default {
-  create
-}
+  create,
+};
